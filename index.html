@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+	lang="en"
+	data-theme="emerald">
 	<head>
 		<meta charset="UTF-8" />
 		<meta
@@ -19,7 +21,10 @@
 				theme: {
 					extend: {
 						colors: {
-							clifford: '#da373d',
+							accent: '#B4F461',
+							textPrimary: '#111111',
+							textSecondary: 'rgba(17, 17, 17, 0.70)',
+							navColor: '#F9F7F3',
 						},
 						fontFamily: {
 							Lexend: ['Lexend', 'system-ui'],
@@ -30,8 +35,48 @@
 		</script>
 	</head>
 	<body>
-		<header></header>
-		<main></main>
+		<header>
+			<!-- Navbar -->
+			<nav
+				class="flex justify-around py-4 bg-navColor backdrop-blur-md shadow-md w-full fixed top-0 left-0 right-0 z-10 font-Lexend">
+				<!-- Logo Container -->
+				<div class="flex items-center">
+					<!-- Logo -->
+					<a class="cursor-pointer">
+						<button
+							class="bg-accent text-xl px-8 py-3 font-semibold text-textPrimary rounded-lg">
+							Blog
+						</button>
+					</a>
+				</div>
+
+				<!-- Links Section -->
+				<div
+					class="items-center flex flex-col md:flex-row justify-center md:gap-x-2 gap-y-2 md:gap-y-0">
+					<img
+						src="./assets/logo.png"
+						alt="logo" />
+					<h1 class="text-textPrimary font-semibold text-xl">
+						Donate Bangladesh
+					</h1>
+				</div>
+
+				<!-- Icon Menu Section -->
+				<div class="flex items-center space-x-5">
+					<!-- Register -->
+					<a
+						class="flex text-textSecondary cursor-pointer transition-colors font-medium text-xl items-center justify-center gap-2 rounded-full bg-white px-4 p-2">
+						<img
+							src="./assets/coin.png"
+							alt="coin" />
+						<p><span id="availableAmount">5500</span> BDT</p>
+					</a>
+				</div>
+			</nav>
+		</header>
+		<main class="max-w-screen-xl mx-auto pt-24">
+			
+		</main>
 		<footer></footer>
 	</body>
 </html>
