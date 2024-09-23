@@ -1,9 +1,15 @@
+// * buttons
 const donateToNowakhalibtn = document.getElementById('donateToNowakhaliButton');
 const donationPageBtn = document.getElementById('donation-pageBtn');
 const historyPageBtn = document.getElementById('history-pageBtn');
+const donateToFenibtn = document.getElementById('donateToFeniButton');
+const donateToQuotaBtn = document.getElementById('donateToQuotaButton');
+// *get available amounts
 const availableAmountNowakhali = document.getElementById(
 	'availableAmountNowakhali'
 );
+
+// * pages
 const donationPage = document.getElementById('donation-page');
 const historyPage = document.getElementById('history-page');
 
@@ -27,29 +33,28 @@ historyPageBtn.addEventListener('click', function () {
 
 // *Nowakhali Fund Collection
 donateToNowakhalibtn.addEventListener('click', function () {
-	const newCoins = moneyDonate('donateToNowakhaliAmount', 'availableAmount');
-	const amount = getInputValue('donateToNowakhaliAmount');
-	const time = getTime();
-	if (isNaN(newCoins)) {
-		return;
-	}
-	setInnerText('availableAmount', newCoins);
-	const nowakhaliCollected = collectedDonations(
+	donate(
 		'donateToNowakhaliAmount',
-		'availableAmountNowakhali'
+		'availableAmountNowakhali',
+		'availableAmount',
+		'Nowakhali'
 	);
-	setInnerText('availableAmountNowakhali', nowakhaliCollected);
-	const notification = document.createElement('div');
-	notification.classList.add('rounded-lg', 'p-6', 'border', 'border-gray-300');
-	notification.innerHTML = `
-            <div>
-              <h3 class="font-bold text-2xl">${amount} Taka is Donated for famine-2024 at Feni, Bangladesh</h3>
-              <div class="text-base">Date : ${time}</div>
-            </div>
-    `;
-	historyPage.appendChild(notification);
-	if (nowakhaliCollected) {
-		openModal();
-	}
-	setInputValue('donateToNowakhaliAmount', '');
+});
+// *Feni Fund Collection
+donateToFenibtn.addEventListener('click', function () {
+	donate(
+		'donateToFeniAmount',
+		'availableAmountFeni',
+		'availableAmount',
+		'feni'
+	);
+});
+// *Quota Fund Collection
+donateToQuotaBtn.addEventListener('click', function () {
+	donate(
+		'donateToQuotaAmount',
+		'availableAmountQuota',
+		'availableAmount',
+		'Quota Movement'
+	);
 });
