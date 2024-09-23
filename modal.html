@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	data-theme="light">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>DaisyUI Modal Example</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css"
+			rel="stylesheet"
+			type="text/css" />
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body>
+		<div class="container mx-auto p-4">
+			<h1 class="text-2xl mb-4">DaisyUI Modal Example</h1>
+			<button
+				class="btn btn-primary"
+				id="openModalBtn">
+				Open Modal Manually
+			</button>
+		</div>
+
+		<!-- Modal -->
+		<dialog
+			id="my_modal"
+			class="modal">
+			<form
+				method="dialog"
+				class="modal-box">
+				<h3 class="font-bold text-lg">Auto-opened Modal</h3>
+				<p class="py-4">
+					This modal was opened automatically because the condition was true!
+				</p>
+				<div class="modal-action">
+					<button class="btn">Close</button>
+				</div>
+			</form>
+		</dialog>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const modal = document.getElementById('my_modal');
+				const openModalBtn = document.getElementById('openModalBtn');
+
+				// Function to open the modal
+				function openModal() {
+					modal.showModal();
+				}
+
+				// Function to close the modal
+				function closeModal() {
+					modal.close();
+				}
+
+				// Event listener for the manual open button
+				openModalBtn.addEventListener('click', openModal);
+
+				// Example condition: Open the modal if the current minute is even
+				function checkCondition() {
+					const currentMinute = new Date().getMinutes();
+					return currentMinute % 2 === 0;
+				}
+
+				// Check the condition and open the modal if true
+				if (checkCondition()) {
+					openModal();
+				}
+			});
+		</script>
+	</body>
+</html>
